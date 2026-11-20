@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Batalha_Naval.Classes
+﻿public class Tabuleiro
 {
-    internal class Tabuleiro
-    {
-    }
 }
+

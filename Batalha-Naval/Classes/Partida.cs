@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Batalha_Naval.Classes
+﻿//Classe responsavel pela logica principal do jogo
+public class Partida
 {
-    internal class Partida
-    {
-    }
+
 }
+
+
+
