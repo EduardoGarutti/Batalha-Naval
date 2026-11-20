@@ -1,4 +1,6 @@
-﻿namespace Batalha_Naval.Classes;
+﻿using Batalha_Naval.Enums;
+
+namespace Batalha_Naval.Classes;
 
 public class Tabuleiro
 {
@@ -37,4 +39,49 @@ public class Tabuleiro
 
         return null;
     }
+
+    public bool PosicionarNavio(
+    Navio navio,
+    int linha,
+    int coluna,
+    Orientacao orientacao)
+    {
+        // A implementação dependerá do tamanho do navio.
+        throw new NotImplementedException();
+    }
+
+
+
+    public void Exibir()
+    {
+        foreach (Celula celula in Celulas)
+        {
+            if (celula.FoiAtacada)
+            {
+                if (celula.EstaOcupada())
+                {
+                    Console.Write("X ");
+                }
+                else
+                {
+                    Console.Write("O ");
+                }
+            }
+            else if (celula.EstaOcupada())
+            {
+                Console.Write("N ");
+            }
+            else
+            {
+                Console.Write("~ ");
+            }
+
+            if (celula.Coluna == Tamanho - 1)
+            {
+                Console.WriteLine();
+            }
+        }
+    }
+
+
 }
