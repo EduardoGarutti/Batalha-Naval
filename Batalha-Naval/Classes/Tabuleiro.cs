@@ -42,6 +42,7 @@ public class Tabuleiro
 
 
 
+
     public ResultadoAtaque ReceberAtaque(int linha, int coluna)
     {
         Celula? celula = BuscarCelula(linha, coluna);
@@ -62,9 +63,16 @@ public class Tabuleiro
             return ResultadoAtaque.Agua;
         }
 
-        // Pendente: registrar o acerto no navio.
-        throw new NotImplementedException();
+        celula.Navio!.ReceberAcerto();
+
+        if (celula.Navio.EstaAfundado())
+        {
+            return ResultadoAtaque.NavioAfundado;
+        }
+
+        return ResultadoAtaque.Acerto;
     }
+
 
 
 
