@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Batalha_Naval.Classes
 {
-    internal class InterfaceConsole
+    internal class Jogador
     {
     }
 }
