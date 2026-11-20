@@ -40,6 +40,34 @@ public class Tabuleiro
         return null;
     }
 
+
+
+    public ResultadoAtaque ReceberAtaque(int linha, int coluna)
+    {
+        Celula? celula = BuscarCelula(linha, coluna);
+
+        if (celula == null)
+        {
+            throw new ArgumentOutOfRangeException(
+                "Posição fora do tabuleiro.");
+        }
+
+        if (!celula.ReceberAtaque())
+        {
+            return ResultadoAtaque.PosicaoJaAtacada;
+        }
+
+        if (!celula.EstaOcupada())
+        {
+            return ResultadoAtaque.Agua;
+        }
+
+        // Pendente: registrar o acerto no navio.
+        throw new NotImplementedException();
+    }
+
+
+
     public bool PosicionarNavio(
     Navio navio,
     int linha,
