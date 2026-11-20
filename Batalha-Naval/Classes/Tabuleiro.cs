@@ -68,15 +68,53 @@ public class Tabuleiro
 
 
 
+
     public bool PosicionarNavio(
-    Navio navio,
-    int linha,
-    int coluna,
-    Orientacao orientacao)
+        Navio navio,
+        int linha,
+        int coluna,
+        Orientacao orientacao)
     {
-        // A implementação dependerá do tamanho do navio.
-        throw new NotImplementedException();
+
+        if (navio == null || navio.Tamanho <= 0)
+        {
+            return false;
+        }
+
+        List<Celula> posicoes = new List<Celula>();
+
+        for (int i = 0; i < navio.Tamanho; i++)
+        {
+            int linhaAtual = linha;
+            int colunaAtual = coluna;
+
+            if (orientacao == Orientacao.Horizontal)
+            {
+                colunaAtual += i;
+            }
+            else
+            {
+                linhaAtual += i;
+            }
+
+            Celula? celula = BuscarCelula(linhaAtual, colunaAtual);
+
+            if (celula == null || celula.EstaOcupada() || celula.FoiAtacada)
+            {
+                return false;
+            }
+
+            posicoes.Add(celula);
+        }
+
+        foreach (Celula celula in posicoes)
+        {
+            celula.PosicionarNavio(navio);
+        }
+
+        return true;
     }
+
 
 
 
