@@ -140,3 +140,5 @@ void InformarNaviosAutomatico(Jogador jogador)
 
     Console.WriteLine("Todos os navios foram posicionados!");
 }
+
+Console.WriteLine("Encerrando o jogo. Até breve!");
