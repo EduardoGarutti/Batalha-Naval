@@ -1,16 +1,19 @@
-﻿using Batalha_Naval.Classes;
-
-public class Jogador
+﻿public class Jogador
 {
     public string? Nome { get; set; }
-    public Tabuleiro? Tabuleiro { get; set; }
+    public Tabuleiro? Tabuleiro { get; set; } = new Tabuleiro();
     public List<Navio>? Navios { get; set; } = new List<Navio>();
+
+    public Jogador()
+    {
+        Tabuleiro = new Tabuleiro();
+        Tabuleiro.Inicializar();
+    }
 
     public void AdicionarNavio(Navio navio)
     {
         Navios?.Add(navio);
     }
-
     public void PrepararNavios()
     {
         Destroyer destroyer = new Destroyer();
@@ -26,7 +29,6 @@ public class Jogador
         AdicionarNavio(portaAvioes);
         
     }
-
     public bool Perdeu()
     {
         foreach (var navio in Navios)

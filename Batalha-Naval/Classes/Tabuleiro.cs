@@ -1,13 +1,7 @@
-﻿using Batalha_Naval.Enums;
-
-namespace Batalha_Naval.Classes;
-
-public class Tabuleiro
+﻿public class Tabuleiro
 {
-
     public List<Celula> Celulas { get; private set; }
     public int Tamanho { get; }
-
     public Tabuleiro()
     {
         Tamanho = 10;
@@ -40,9 +34,6 @@ public class Tabuleiro
         return null;
     }
 
-
-
-
     public ResultadoAtaque ReceberAtaque(int linha, int coluna)
     {
         Celula? celula = BuscarCelula(linha, coluna);
@@ -72,11 +63,6 @@ public class Tabuleiro
 
         return ResultadoAtaque.Acerto;
     }
-
-
-
-
-
     public bool PosicionarNavio(
         Navio navio,
         int linha,
@@ -122,10 +108,6 @@ public class Tabuleiro
 
         return true;
     }
-
-
-
-
     public void Exibir()
     {
         foreach (Celula celula in Celulas)
@@ -157,5 +139,27 @@ public class Tabuleiro
         }
     }
 
+    public void ExibirLinha(int linha, bool ocultarNavios = false)
+    {
+        for (int coluna = 0; coluna < Tamanho; coluna++)
+        {
+            Celula celula = Celulas[linha * Tamanho + coluna];
 
+            if (celula.FoiAtacada)
+            {
+                if (celula.EstaOcupada())
+                    Console.Write("X ");
+                else
+                    Console.Write("O ");
+            }
+            else if (celula.EstaOcupada() && !ocultarNavios)
+            {
+                Console.Write("N ");
+            }
+            else
+            {
+                Console.Write("~ ");
+            }
+        }
+    }
 }

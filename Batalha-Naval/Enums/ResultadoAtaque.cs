@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Batalha_Naval.Enums
+﻿public enum ResultadoAtaque
 {
-    internal class ResultadoAtaque
-    {
-    }
+    Agua,
+    Acerto,
+    NavioAfundado,
+    PosicaoJaAtacada
 }
+
