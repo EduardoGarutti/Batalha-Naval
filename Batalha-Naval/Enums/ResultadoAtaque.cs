@@ -1,4 +1,4 @@
-﻿enum ResultadoAtaque
+﻿public enum ResultadoAtaque
 {
     Agua,
     Acerto,

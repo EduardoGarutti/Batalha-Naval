@@ -1,6 +1,4 @@
-﻿namespace Batalha_Naval.Classes;
-
-public class Celula
+﻿public class Celula
 {
     public int Linha { get; }
     public int Coluna { get; }
